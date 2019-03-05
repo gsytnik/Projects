@@ -1,0 +1,92 @@
+Labyrinth Project Plans
+
+Classes:
+	
+	Cell - controls type of cell and cell walls.
+
+		init: cell type, cell location, cell walls, cell capital walls.
+		make_capital_wall: assigns capital walls.
+		create_wall: adds wall N/S/E/W to cell.
+
+	Player - controls all player actions.
+
+		init: makes player with 3 ammo and 3 grenades, x and y, and 0 cement. no key, player is alive
+		die: kills player
+		resurrect: revives player
+		fire_gun: uses gun
+		use_grenade
+		use_cement
+		obtain_key
+		drop_key
+		lose_turn
+		move
+	
+	Bear - bear and bear actions.
+	
+		init: makes bear with x and y.
+		move	
+
+
+Search algorithm - hospital to arsenal:
+	
+	brute force - attempts to find path from hospital to arsenal when wall is built.
+	will search out path going north until impossible. if impossible will switch to east, then south, finally west.
+	if dead end, goes back one step and tries different path. if no paths found, will not allow the wall to be built.
+
+
+Labyrinth:
+	
+	main():
+		initialize_game()
+		while True:
+			player(n) starts turn
+			while turn is not finished and no stuck counter:
+				player can move and make one action.
+			when turn is finished:
+				move bear, switch players.
+			(if check_win(player): break)
+
+	is_wall(direction,x,y):
+		if cell[x][y] has wall in direction, return true, else return false.
+	
+	action_handler(command):
+		player does command, if success return true, else return false.
+
+	movement_handler(direction):
+		if is_wall return false and print "cant move, wall"
+		else move player in direction, move bear in opposite direction, return true.
+
+	check_win(player):
+		if player (x < 0 or x > lab_size or y > max_size or y < 0) and player has key:
+		player has won
+		return true
+
+	select_type():
+		random number 1-100
+
+		if number range == percent chance of cell type:
+			return cell type
+	
+	initialize_game():
+		max_size = enter lab size 5 - 8
+		player_ct = enter player count
+
+		global cell = []
+		global player = []
+		
+		for i in range(max_size):
+			for j in range(max_size):
+				
+				cell.append(Cell(x, y, select_type())
+		
+		for i in range(player_ct)
+			x = randint(max_size)
+			y = randint(max_size)
+			player.append(Player(x, y, input("player" + str(i + 1) + "name")))
+			
+		global bear = Bear(randomint(max_size), randint(max_size))
+		
+		
+		
+	
+
